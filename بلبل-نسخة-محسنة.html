@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>بلبل – تدرّب على النطق</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8ec;--card:#fff;--ink:#2b2340;--mut:#7a6f92;--pri:#7c4dff;--pri2:#ede7ff;--ok:#22b573;--warn:#ff8a3d;--bad:#ef5b5b;--line:#eadfce;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17132a;--card:#241e3d;--ink:#f3eeff;--mut:#a79ec4;--pri:#9b7bff;--pri2:#322a57;--line:#372f5a}}
+:root[data-theme="dark"]{--bg:#17132a;--card:#241e3d;--ink:#f3eeff;--mut:#a79ec4;--pri:#9b7bff;--pri2:#322a57;--line:#372f5a}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,Arial,sans-serif;padding-bottom:84px;min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 12px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:14px}
+.seg{display:flex;gap:6px;background:var(--pri2);padding:5px;border-radius:16px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:none;color:var(--ink);font:700 15px Cairo,Tahoma;padding:10px;border-radius:12px;cursor:pointer}
+.seg button.on{background:var(--pri);color:#fff}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px}
+.chip{flex:none;min-width:44px;height:44px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:800 20px Cairo,Tahoma;cursor:pointer;padding:0 10px}
+.chip.cur{border-color:var(--pri);background:var(--pri2)}
+.chip.g{background:#d6f5e6;color:#0f7a4b;border-color:#8fe0b9}
+.chip.o{background:#ffe6d2;color:#b4530d;border-color:#ffc197}
+.big{text-align:center;padding:18px 6px}
+.big .t{font-size:84px;font-weight:800;line-height:1.2;color:var(--pri)}
+.big .t.s{font-size:34px}
+.big .sub{color:var(--mut);font-size:17px}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.btn{border:0;border-radius:16px;padding:13px 20px;font:800 17px Cairo,Tahoma;cursor:pointer;color:#fff;background:var(--pri)}
+.btn.sec{background:var(--pri2);color:var(--pri)}
+.btn.rec{background:var(--bad)}
+.btn.ok{background:var(--ok)}
+.res{text-align:center;margin-top:14px;font-weight:800;font-size:18px;min-height:56px}
+.stars{font-size:30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.st{background:var(--pri2);border-radius:16px;padding:12px 6px;text-align:center}
+.st b{display:block;font-size:24px;color:var(--pri)}
+.st span{font-size:12px;color:var(--mut)}
+h2{font-size:17px;margin:0 0 10px}
+.log{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.log:last-child{border:0}
+.pill{padding:3px 10px;border-radius:99px;font-weight:800;font-size:13px}
+.p-g{background:#d6f5e6;color:#0f7a4b}.p-o{background:#ffe6d2;color:#b4530d}.p-r{background:#ffd9d9;color:#b02a2a}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:12px;font-weight:800;font-size:20px;background:var(--pri2);color:var(--mut)}
+.cell.g{background:#22b573;color:#fff}.cell.o{background:#ff8a3d;color:#fff}
+.mut{color:var(--mut);font-size:14px}
+input{font:700 16px Cairo,Tahoma;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+pre{white-space:pre-wrap;font:inherit;background:var(--pri2);padding:12px;border-radius:14px;font-size:14px;margin:0 0 10px}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);display:flex;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:none;color:var(--mut);font:700 13px Cairo,Tahoma;padding:6px;cursor:pointer;border-radius:12px}
+nav button span{display:block;font-size:22px}
+nav button.on{color:var(--pri);background:var(--pri2)}
+.hide{display:none}
+
+/* تحسينات الواجهة وتجربة الاستخدام */
+:root{--pri:#6650d9;--pri2:#eeeaff;--bg:#f6f4ff;--ink:#292443;--mut:#77718f;--line:#e5e0f4}
+body{background:radial-gradient(circle at 90% 0%,#eeeaff 0,transparent 32%),var(--bg)}
+.wrap{padding:20px 16px 110px}
+h1{font-size:25px;letter-spacing:-.4px;margin:8px 2px 18px}
+.card{border:1px solid rgba(102,80,217,.10);box-shadow:0 8px 24px rgba(48,35,100,.055);border-radius:22px;padding:18px}
+.seg{padding:5px;gap:5px}
+.seg button{font-size:14px;transition:.2s}
+.chips{scrollbar-width:thin;scrollbar-color:var(--pri2) transparent}
+.chip{transition:transform .15s,border-color .15s;box-shadow:0 2px 7px rgba(30,20,70,.04)}
+.chip:active,.btn:active{transform:scale(.97)}
+.big{padding:22px 8px}
+.big .t{font-size:clamp(66px,18vw,88px);line-height:1.35}
+.big .t.s{font-size:clamp(27px,7vw,36px);line-height:1.7}
+.big .sub{line-height:1.9}
+.btn{min-height:48px;box-shadow:0 4px 10px rgba(50,35,100,.10);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.04)}
+.btn.sec{box-shadow:none}
+.res{line-height:1.8}
+.stats{gap:9px}
+.st{padding:14px 5px;border:1px solid rgba(102,80,217,.08)}
+.st b{font-size:clamp(20px,6vw,26px)}
+nav{box-shadow:0 -5px 22px rgba(40,30,80,.07);padding-top:9px}
+nav button{min-height:55px}
+input{outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(102,80,217,.12)}
+.mut{line-height:1.8}
+@media(max-width:380px){.wrap{padding-inline:11px}.card{padding:14px}.btn{padding:11px 14px;font-size:15px}.seg button{padding:9px 4px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<nav id="nav"></nav>
+<script>
+var L=[["أ","ألف","أرنب"],["ب","باء","بطة"],["ت","تاء","تفاح"],["ث","ثاء","ثعلب"],["ج","جيم","جمل"],["ح","حاء","حصان"],["خ","خاء","خروف"],["د","دال","دب"],["ذ","ذال","ذرة"],["ر","راء","رمان"],["ز","زاي","زرافة"],["س","سين","سمكة"],["ش","شين","شمس"],["ص","صاد","صقر"],["ض","ضاد","ضفدع"],["ط","طاء","طائرة"],["ظ","ظاء","ظرف"],["ع","عين","عنب"],["غ","غين","غيمة"],["ف","فاء","فيل"],["ق","قاف","قمر"],["ك","كاف","كتاب"],["ل","لام","ليمون"],["م","ميم","موز"],["ن","نون","نجمة"],["هـ","هاء","هلال"],["و","واو","وردة"],["ي","ياء","يد"]];
+var W=["شمس","قمر","كتاب","مدرسة","حديقة","فراشة","برتقال","سيارة","وردة","مكتبة"];
+var S=["أنا أحب مدرستي","القمر جميل في السماء","أكلت تفاحة حمراء","القطة تشرب الحليب","ذهبت إلى الحديقة مع أمي","الشمس مشرقة اليوم"];
+var MODES={l:"الحروف",w:"الكلمات",s:"الجمل"};
+var D={name:"",att:[]};
+try{var raw=localStorage.getItem("nutq1");if(raw)D=JSON.parse(raw)}catch(e){}
+function save(){try{localStorage.setItem("nutq1",JSON.stringify(D))}catch(e){}}
+var st={tab:"p",mode:"l",i:0,res:null,rec:false};
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function items(m){return m=="l"?L.map(function(x){return x[0]}):m=="w"?W:S}
+function norm(s){return String(s).replace(/[\u064B-\u0652\u0640]/g,"").replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/[^\u0621-\u064A ]/g,"").trim()}
+function lev(a,b){var m=[],i,j;for(i=0;i<=a.length;i++){m[i]=[i]}for(j=1;j<=b.length;j++)m[0][j]=j;for(i=1;i<=a.length;i++)for(j=1;j<=b.length;j++)m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return m[a.length][b.length]}
+function sim(a,b){a=norm(a);b=norm(b);if(!a||!b)return 0;return Math.round((1-lev(a,b)/Math.max(a.length,b.length))*100)}
+function score(heard){
+  var cur=items(st.mode)[st.i];
+  if(st.mode!="l")return sim(heard,cur);
+  var info=L[st.i],best=0;
+  var cands=[info[0].replace("ـ",""),info[1],info[2]];
+  heard.split(" ").concat([heard]).forEach(function(h){cands.forEach(function(c){best=Math.max(best,sim(h,c))})});
+  return best;
+}
+function speak(txt){
+  try{var u=new SpeechSynthesisUtterance(txt);u.lang="ar-SA";u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}
+}
+function sayCur(){
+  var c=items(st.mode)[st.i];
+  if(st.mode=="l"){var x=L[st.i];speak(x[1]+"، "+x[2])}else speak(c)
+}
+function addAtt(sc){
+  D.att.push({t:Date.now(),m:st.mode,k:items(st.mode)[st.i],s:sc});save();
+  st.res=sc;st.rec=false;render();
+}
+function listen(){
+  if(!SR)return;
+  if(!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia))return listen2();
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){s.getTracks().forEach(function(t){t.stop()});listen2()}).catch(function(){st.err='not-allowed';st.res=-1;render()});
+}
+function listen2(){
+  if(!SR)return;
+  var r=new SR();r.lang="ar-SA";r.maxAlternatives=3;st.rec=true;st.res=null;render();
+  var done=false;
+  r.onresult=function(e){done=true;var best=0,txt="";for(var j=0;j<e.results[0].length;j++){var h=e.results[0][j].transcript;var s=score(h);if(s>=best){best=s;txt=h}}addAtt(best)};
+  r.onerror=function(ev){if(!done){done=true;st.err=ev&&ev.error;st.rec=false;st.res=-1;render()}};
+  r.onend=function(){if(!done){st.rec=false;st.res=-1;render()}};
+  try{r.start()}catch(e){st.rec=false;render()}
+}
+function recent(m,k){var a=D.att.filter(function(x){return x.m==m&&x.k==k}).slice(-3);return a.length?{n:a.length,avg:a.reduce(function(s,x){return s+x.s},0)/a.length,tot:D.att.filter(function(x){return x.m==m&&x.k==k}).length}:null}
+function cls(m,k){var r=recent(m,k);if(!r)return"";if(r.avg>=80&&r.tot>=2)return"g";if(r.avg<70)return"o";return""}
+function stars(s){return s>=85?3:s>=65?2:s>=40?1:0}
+function msg(s){return s>=85?"ممتاز! نطق رائع 🎉":s>=65?"جيد جدًا! حاول مرة ثانية لتصير أحسن 👏":s>=40?"محاولة حلوة، اسمع وأعد 💪":"ما بأس، اسمع الكلمة وجرّب من جديد 🌱"}
+function pc(s){return s>=80?"p-g":s>=60?"p-o":"p-r"}
+function avg(a){return a.length?Math.round(a.reduce(function(s,x){return s+x.s},0)/a.length):0}
+function improve(){
+  var a=D.att;if(a.length<4)return null;
+  var h=Math.floor(a.length/2);return avg(a.slice(h))-avg(a.slice(0,h));
+}
+function weakLetters(){return L.filter(function(x){var r=recent("l",x[0]);return r&&r.avg<70}).map(function(x){return x[0]})}
+function masteredLetters(){return L.filter(function(x){return cls("l",x[0])=="g"}).map(function(x){return x[0]})}
+function chart(){
+  var days={};D.att.forEach(function(x){var d=new Date(x.t).toLocaleDateString("ar");(days[d]=days[d]||[]).push(x)});
+  var ks=Object.keys(days).slice(-10);
+  if(ks.length<2)return '<p class="mut">سيظهر الرسم بعد التدريب في يومين أو أكثر. حاليًا: '+(ks.length?'متوسط اليوم '+avg(days[ks[0]])+'%':'لا توجد محاولات بعد')+'</p>';
+  var pts=ks.map(function(k,i){return[20+i*(260/(ks.length-1)),100-avg(days[k])*0.9]});
+  var line=pts.map(function(p){return p[0].toFixed(0)+","+p[1].toFixed(0)}).join(" ");
+  var dots=pts.map(function(p,i){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="var(--pri)"/><text x="'+p[0]+'" y="'+(p[1]-8)+'" font-size="10" text-anchor="middle" fill="var(--ink)">'+avg(days[ks[i]])+'</text>'}).join("");
+  return '<svg viewBox="0 0 300 120" width="100%" style="direction:ltr"><line x1="10" y1="100" x2="290" y2="100" stroke="var(--line)"/><line x1="10" y1="10" x2="290" y2="10" stroke="var(--line)" stroke-dasharray="3"/><polyline points="'+line+'" fill="none" stroke="var(--pri)" stroke-width="3"/>'+dots+'</svg><div class="mut" style="text-align:center">متوسط الأداء % حسب اليوم</div>';
+}
+function report(){
+  var n=D.name||"الطفل",a=D.att,w=weakLetters(),m=masteredLetters(),im=improve();
+  return "تقرير تقدّم "+n+"\n• عدد المحاولات: "+a.length+"\n• متوسط الأداء: "+avg(a)+"%\n• نسبة التحسّن: "+(im===null?"تحتاج محاولات أكثر":(im>=0?"+":"")+im+"%")+"\n• الحروف المتقنة: "+(m.join(" ، ")||"—")+"\n• حروف تحتاج تدريب: "+(w.join(" ، ")||"—")+"\nاستمروا، أنتم تقومون بعمل رائع! 🌟";
+}
+function view(){
+  if(st.tab=="p"){
+    var arr=items(st.mode),cur=arr[st.i],h="";
+    h+='<h1>🐦 بلبل</h1><div class="seg">'+Object.keys(MODES).map(function(k){return '<button class="'+(st.mode==k?"on":"")+'" data-m="'+k+'">'+MODES[k]+'</button>'}).join("")+'</div>';
+    h+='<div class="chips">'+arr.map(function(c,i){return '<button class="chip '+cls(st.mode,c)+(i==st.i?" cur":"")+'" data-i="'+i+'">'+(st.mode=="l"?c:i+1)+'</button>'}).join("")+'</div>';
+    h+='<div class="card big"><div class="t'+(st.mode=="s"?" s":"")+'">'+cur+'</div>';
+    if(st.mode=="l")h+='<div class="sub">'+L[st.i][1]+' — مثل «'+L[st.i][2]+'»</div>';
+    h+='<div class="row"><button class="btn sec" id="hear">🔊 اسمع</button>';
+    if(SR)h+='<button class="btn '+(st.rec?"rec":"")+'" id="mic">'+(st.rec?"⏺ أسمعك...":"🎤 انطق")+'</button>';
+    h+='</div>';
+    if(!SR||st.res===-1)h+='<p class="mut">'+(!SR?'ميزة التعرّف على الصوت غير مدعومة في هذا المتصفح. ':'إذا لم يعمل الميكروفون، ')+'يمكن لوليّ الأمر الاستماع ثم اختيار التقييم المناسب:</p><div class="row"><button class="btn ok" data-r="100">✔ نطق صحيح</button><button class="btn sec" data-r="70">~ تقريبًا</button><button class="btn rec" data-r="30">✖ يحتاج إعادة</button></div>';
+    h+='<div class="res">';
+    if(st.res===-1)h+=(st.err=='not-allowed'||st.err=='service-not-allowed'?'المايك محظور داخل هذه الصفحة. افتح الرابط مباشرة في Chrome أو Safari واسمح بالمايك، أو استخدم التقييم اليدوي':'لم أسمع جيدًا، أعد المحاولة أو استخدم التقييم اليدوي');
+    else if(st.res!==null)h+='<div class="stars">'+"⭐".repeat(stars(st.res))+"☆".repeat(3-stars(st.res))+'</div>'+msg(st.res)+' ('+st.res+'%)';
+    h+='</div>';
+    if(st.res!==null&&st.res!==-1)h+='<div class="row"><button class="btn" id="next">التالي ←</button></div>';
+    h+='</div>';
+    return h;
+  }
+  if(st.tab=="r"){
+    var a=D.att,im=improve(),w=weakLetters(),h="<h1>📈 تقدّمي</h1>";
+    h+='<div class="card"><div class="stats"><div class="st"><b>'+a.length+'</b><span>المحاولات</span></div><div class="st"><b>'+avg(a)+'%</b><span>متوسط الأداء</span></div><div class="st"><b>'+(im===null?"—":(im>=0?"+":"")+im+"%")+'</b><span>نسبة التحسّن</span></div></div></div>';
+    h+='<div class="card"><h2>الأداء عبر الوقت</h2>'+chart()+'</div>';
+    h+='<div class="card"><h2>حروف تحتاج تدريب</h2>'+(w.length?'<div class="grid">'+w.map(function(x){return '<div class="cell o">'+x+'</div>'}).join("")+'</div>':'<p class="mut">'+(a.length?"ممتاز! لا توجد حروف ضعيفة حاليًا 🎉":"ابدأ التدريب لتظهر النتائج")+'</p>')+'</div>';
+    h+='<div class="card"><h2>سجل المحاولات</h2>'+(a.length?a.slice(-12).reverse().map(function(x){return '<div class="log"><span><b>'+x.k+'</b> <span class="mut">'+MODES[x.m]+' · '+new Date(x.t).toLocaleDateString("ar")+'</span></span><span class="pill '+pc(x.s)+'">'+x.s+'%</span></div>'}).join(""):'<p class="mut">لا توجد محاولات بعد</p>')+'</div>';
+    return h;
+  }
+  var m=masteredLetters(),w2=weakLetters(),h2="<h1>👨‍👩‍👧 مساحة الأولياء</h1>";
+  h2+='<div class="card"><h2>اسم الطفل</h2><input id="nm" placeholder="اكتب اسم الطفل" value="'+(D.name||"").replace(/"/g,"")+'"></div>';
+  h2+='<div class="card"><h2>الحروف التي يتقنها ('+m.length+' من 28)</h2><div class="grid">'+L.map(function(x){var c=cls("l",x[0]);return '<div class="cell '+c+'">'+x[0]+'</div>'}).join("")+'</div><p class="mut">🟩 متقن · 🟧 يحتاج تدريب · رمادي لم يُجرَّب</p></div>';
+  var today=D.att.filter(function(x){return Date.now()-x.t<864e5});
+  h2+='<div class="card"><h2>تدريبات آخر 24 ساعة</h2><p>'+today.length+' محاولة · متوسط '+avg(today)+'%</p></div>';
+  h2+='<div class="card"><h2>نصيحة للاستفادة من بلبل</h2><p class="mut">ابدؤوا بالحروف، ثم انتقلوا إلى الكلمات والجمل. استمعوا للنطق بهدوء وشجّعوا الطفل على المحاولة دون استعجال.</p></div>';
+   h2+='<div class="card"><h2>تقرير للأهل</h2><pre id="rep">'+report()+'</pre><div class="row"><button class="btn" id="share">📤 مشاركة التقرير</button></div></div>';
+  h2+='<div class="card"><button class="btn sec" id="reset">🗑️ مسح كل البيانات</button></div>';
+  return h2;
+}
+function render(){
+  document.getElementById("app").innerHTML=view();
+  document.getElementById("nav").innerHTML=[["p","🎯","تدريب"],["r","📈","تقدّمي"],["a","👨‍👩‍👧","الأهل"]].map(function(t){return '<button class="'+(st.tab==t[0]?"on":"")+'" data-t="'+t[0]+'"><span>'+t[1]+'</span>'+t[2]+'</button>'}).join("");
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;var d=b.dataset;
+  if(d.t){st.tab=d.t;render()}
+  else if(d.m){st.mode=d.m;st.i=0;st.res=null;render()}
+  else if(d.i!==undefined){st.i=+d.i;st.res=null;render();sayCur()}
+  else if(d.r){addAtt(+d.r)}
+  else if(b.id=="hear")sayCur();
+  else if(b.id=="mic")listen();
+  else if(b.id=="next"){st.i=(st.i+1)%items(st.mode).length;st.res=null;render()}
+  else if(b.id=="share"){var t=report();if(navigator.share){navigator.share({text:t}).catch(function(){})}else{try{navigator.clipboard.writeText(t);b.textContent="✔ تم النسخ"}catch(x){}}}
+  else if(b.id=="reset"){if(confirm("هل تريد مسح كل المحاولات؟")){D.att=[];save();render()}}
+});
+document.addEventListener("input",function(e){if(e.target.id=="nm"){D.name=e.target.value;save()}});
+render();
+</script>
+</body>
+</html>
